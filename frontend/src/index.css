@@ -1,0 +1,323 @@
+:root {
+  /* Define your new color palette */
+  --primary-color: #2C5F2D; /* Deep Forest Green */
+  --primary-hover: #234d24;
+  --secondary-color: #E9F5E9; /* Very light green accent */
+  --text-dark: #333333;
+  --text-light: #555555;
+  --background-color: #F8F9FA;
+  --white-color: #ffffff;
+  --border-color: #dee2e6;
+  --danger-color: #dc2626;
+
+  /* Define your new fonts */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background-color: var(--background-color);
+  color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Login Page */
+.login-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-hero {
+  background-color: var(--secondary-color);
+  /* You can add your background image back here if you like */
+  /* background-image: url('/src/assets/bg1.jpg'); */
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.login-hero h1 { font-size: 3.5rem; font-weight: 700; }
+
+.login-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.login-form p { color: var(--text-light); }
+.login-form input,
+.login-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* App Layout & Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white-color);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.logo-img { height: 40px; width: auto; }
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-light);
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.main-nav a.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+.notification-bell {
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--danger-color);
+  color: var(--white-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-profile small { color: var(--text-light); }
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Dashboard & Cards */
+.dashboard-header { margin-bottom: 2rem; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.kpi-card, .event-card, .waste-log-form, .dmaic-content {
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.kpi-title { margin: 0; color: var(--text-light); }
+.kpi-value { font-size: 2.5rem; margin: 0.5rem 0; font-weight: 700; }
+.kpi-change { margin: 0; font-size: 0.9rem; }
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Event List */
+.event-list { display: grid; gap: 1.5rem; }
+.event-card h3 { margin-top: 0; }
+.event-card .status-planning {
+  background-color: #e0f2fe; /* This could be a variable too if you want */
+  color: #0284c7;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Modal */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  background: var(--white-color);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  outline: none;
+}
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.form-group input, .dmaic-content textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.form-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem; }
+
+/* Buttons */
+.btn-primary, .login-form button, .create-event-btn {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover, .login-form button:hover, .create-event-btn:hover { background-color: var(--primary-hover); }
+.btn-secondary {
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-danger {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--danger-color);
+  color: var(--white-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* DMAIC Page */
+.dmaic-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+.dmaic-tabs button {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  border-bottom: 2px solid transparent;
+}
+.dmaic-tabs button.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+.dmaic-content textarea { min-height: 120px; margin-bottom: 1rem; }
+
+/* Admin Table */
+.user-list-container { margin-top: 3rem; }
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.user-table th, .user-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+.user-table thead { background-color: var(--background-color); }
+.user-table th { font-weight: 600; }
+.user-table tbody tr:last-child td { border-bottom: none; }
+
+/* Utilities */
+.save-message {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.event-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.kpi-change.positive {
+  color: var(--primary-color);
+}
+.kpi-change.negative {
+  color: var(--danger-color);
+}
+
+/* Learning Resources Page */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.course-card {
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.course-card h4 {
+  margin-top: 0;
+}
+.course-meta {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+.progress-bar-container {
+  height: 8px;
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
